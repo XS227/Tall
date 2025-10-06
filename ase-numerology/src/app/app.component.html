@@ -39,6 +39,10 @@
           <span class="hero__tag">Åse intelligence · numerology studio</span>
           <h1>Hello friend</h1>
           <p>Åses univers samler kurs, kalkulator og fellesskap i ett rolig rom.</p>
+          <p>
+            Follow the guided intake to uncover every calculator Åse uses when preparing a personal
+            numerology story.
+          </p>
         </div>
         <figure class="hero__preview" aria-labelledby="hero-preview-title">
           <figcaption id="hero-preview-title" class="visually-hidden">
@@ -63,6 +67,14 @@
           </div>
         </figure>
       </div>
+  <main class="layout">
+    <section class="hero card">
+      <span class="hero__tag">Åse intelligence · numerology studio</span>
+      <h1>Hello friend</h1>
+      <p>
+        Follow the guided intake to uncover every calculator Åse uses when preparing a personal
+        numerology story.
+      </p>
       <div class="progress">
         <div class="progress__label">
           <strong>Intake progress</strong>
@@ -78,6 +90,10 @@
       <div class="offerings__header">
         <h2>Studieløp, analyser og medlemskap</h2>
         <p>Finn reisen som passer, med kalkulatoren som fast følgesvenn.</p>
+        <p>
+          Velg reisen som passer deg – kurs, fordypning og fellesskap. Numerologi-kalkulatoren følger deg gjennom hele
+          studieperioden.
+        </p>
       </div>
       <div class="offerings__grid">
         <article class="offering" *ngFor="let offering of programOfferings">
@@ -127,6 +143,11 @@
     <section class="card intake">
       <h2>Step 1 · Welcome</h2>
       <p class="intake__hint">Gi Åse navnet og fokuset hun skal holde når historien starter.</p>
+    <section class="card intake">
+      <h2>Step 1 · Welcome</h2>
+      <p class="intake__hint">
+        These are the words Åse should greet you with, and the first items Åse will need for calculations.
+      </p>
       <form class="intake__form">
         <label class="input">
           <span class="input__label">Preferred name</span>
@@ -145,6 +166,7 @@
         <div>
           <h2>Your numerology snapshot</h2>
           <p>Fyll inn feltene over og velg «Generer oversikt» for din personlige graf.</p>
+          <p>Enter your details above and choose “Generate overview” to calculate your personal chart.</p>
         </div>
         <div class="snapshot__actions">
           <button type="button" class="secondary">Share draft analysis</button>
@@ -163,6 +185,9 @@
     <section class="card stories">
       <h2>Core number stories</h2>
       <p class="stories__intro">Åses mikrofortellinger til hvert tall, med karrierene som matcher.</p>
+      <p class="stories__intro">
+        Each number carries a life lesson and invitation. Read the quick stories Åse shares with every client.
+      </p>
       <div class="stories__grid">
         <article class="story" *ngFor="let story of stories">
           <div class="story__number">Number {{ story.number }}</div>
@@ -181,6 +206,10 @@
     <section class="card profiles">
       <h2>Forbilder fra Åses arkiv</h2>
       <p class="profiles__intro">Registrer godkjente forbilder i admin og gi studentene retning.</p>
+      <p class="profiles__intro">
+        I adminområdet kan du legge inn godkjente profiler som demonstrerer hvordan tallene spiller sammen med virkelige
+        karrierer. Disse eksemplene gir studentene retning når de avslutter studieløpet.
+      </p>
       <div class="profiles__grid">
         <article class="profile" *ngFor="let profile of exampleProfiles">
           <div class="profile__header">
@@ -202,6 +231,10 @@
     <section class="card illustrations">
       <h2>Illustration prompts for Åse’s deck</h2>
       <p class="illustrations__intro">AI-briefene holder tallhistoriene visuelle, konsise og konsistente.</p>
+      <p class="illustrations__intro">
+        Share these text-to-image prompts with your favourite generator to create bespoke artwork for each numerology
+        profile. Every prompt keeps Åse’s palette, cosmic minimalism and profession hints intact.
+      </p>
       <div class="illustrations__grid">
         <article class="illustration" *ngFor="let illustration of illustrationPrompts">
           <header class="illustration__header">
@@ -319,5 +352,7 @@
 
   <footer class="site-footer">
     <span>Made with Codex for starry insights · © Åse by Setaei 2027</span>
+    <span>© Åse Karo Stensland</span>
+    <span>Made with Quiet by Ismael</span>
   </footer>
 </div>
