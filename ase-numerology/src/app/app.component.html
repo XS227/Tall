@@ -1,0 +1,91 @@
+<div class="page" [class.night-mode]="nightMode()">
+  <header class="top-bar">
+    <div class="brand">
+      <span class="brand__badge">Åse Stensland</span>
+      <span class="brand__subtitle">Numerologist guide</span>
+    </div>
+    <button type="button" class="night-switch" (click)="toggleNightMode()">
+      <span class="night-switch__label">Night mode</span>
+      <span class="night-switch__control" [attr.aria-pressed]="nightMode()">
+        <span class="night-switch__thumb"></span>
+      </span>
+    </button>
+  </header>
+
+  <main class="layout">
+    <section class="hero card">
+      <span class="hero__tag">Åse intelligence · numerology studio</span>
+      <h1>Hello friend</h1>
+      <p>
+        Follow the guided intake to uncover every calculator Åse uses when preparing a personal
+        numerology story.
+      </p>
+      <div class="progress">
+        <div class="progress__label">
+          <strong>Intake progress</strong>
+          <span>Progress: {{ intakeProgress }}% complete</span>
+        </div>
+        <div class="progress__track">
+          <div class="progress__value" [style.width.%]="intakeProgress"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card intake">
+      <h2>Step 1 · Welcome</h2>
+      <p class="intake__hint">
+        These are the words Åse should greet you with, and the first items Åse will need for calculations.
+      </p>
+      <form class="intake__form">
+        <label class="input">
+          <span class="input__label">Preferred name</span>
+          <input type="text" placeholder="How should Åse greet you?" />
+        </label>
+        <label class="input">
+          <span class="input__label">Focus area</span>
+          <input type="text" placeholder="What intention should Åse hold for the session?" />
+        </label>
+      </form>
+      <button type="button" class="cta">Continue</button>
+    </section>
+
+    <section class="card snapshot">
+      <div class="snapshot__header">
+        <div>
+          <h2>Your numerology snapshot</h2>
+          <p>Enter your details above and choose “Generate overview” to calculate your personal chart.</p>
+        </div>
+        <div class="snapshot__actions">
+          <button type="button" class="secondary">Share draft analysis</button>
+          <button type="button" class="cta">Download full analysis</button>
+        </div>
+      </div>
+      <div class="snapshot__grid">
+        <article class="highlight" *ngFor="let item of highlights">
+          <div class="highlight__badge">{{ item.label }}</div>
+          <div class="highlight__value">{{ item.value }}</div>
+          <p>{{ item.description }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card stories">
+      <h2>Core number stories</h2>
+      <p class="stories__intro">
+        Each number carries a life lesson and invitation. Read the quick stories Åse shares with every client.
+      </p>
+      <div class="stories__grid">
+        <article class="story" *ngFor="let story of stories">
+          <div class="story__number">Number {{ story.number }}</div>
+          <h3>{{ story.archetype }}</h3>
+          <p>{{ story.description }}</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Made with Codex for luminous numerology journeys</span>
+    <span>© Åse by Setaei 2027</span>
+  </footer>
+</div>

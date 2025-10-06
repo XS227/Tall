@@ -1,0 +1,42 @@
+@use 'sass:map';
+@use 'sass:math';
+
+:root {
+  color-scheme: light;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --gradient-start: #fff6ed;
+  --gradient-end: #fef9f4;
+  --surface: #ffffff;
+  --surface-strong: #fff3e0;
+  --surface-muted: #f9f0e8;
+  --text-primary: #1b1b1f;
+  --text-muted: #5f6368;
+  --accent: #ff8a3d;
+  --accent-strong: #ff6d00;
+  --border: rgba(27, 27, 31, 0.08);
+  --shadow-soft: 0 20px 40px rgba(255, 138, 61, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(160deg, var(--gradient-start), var(--gradient-end));
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
