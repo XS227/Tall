@@ -22,4 +22,8 @@ describe('AppComponent', () => {
   it('should expose numerology highlights', () => {
     expect(component.highlights.length).toBeGreaterThan(0);
   });
+
+  it('should surface illustration prompts', () => {
+    expect(component.illustrationPrompts.length).toBeGreaterThan(0);
+  });
 });

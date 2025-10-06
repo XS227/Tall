@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ILLUSTRATIONS, IllustrationSpec } from './assets/illustrations.numerology';
 
 interface NumerologyHighlight {
   label: string;
@@ -54,6 +55,8 @@ export class AppComponent {
     { number: 22, archetype: 'The Master Builder', description: 'Grand designs, community leadership and tangible legacy.' },
     { number: 33, archetype: 'The Master Healer', description: 'Radiant love, spiritual teaching and generational healing.' }
   ];
+
+  readonly illustrationPrompts: IllustrationSpec[] = ILLUSTRATIONS;
 
   readonly nightMode = signal(false);
 

@@ -82,10 +82,40 @@
         </article>
       </div>
     </section>
+
+    <section class="card illustrations">
+      <h2>Illustration prompts for Åse’s deck</h2>
+      <p class="illustrations__intro">
+        Share these text-to-image prompts with your favourite generator to create bespoke artwork for each numerology
+        profile. Every prompt keeps Åse’s palette, cosmic minimalism and profession hints intact.
+      </p>
+      <div class="illustrations__grid">
+        <article class="illustration" *ngFor="let illustration of illustrationPrompts">
+          <header class="illustration__header">
+            <span class="illustration__number">{{ illustration.number }}</span>
+            <h3>{{ illustration.title }}</h3>
+          </header>
+          <p class="illustration__prompt">{{ illustration.prompt }}</p>
+          <dl class="illustration__meta">
+            <div>
+              <dt>Style tags</dt>
+              <dd>{{ illustration.styleTags.join(', ') }}</dd>
+            </div>
+            <div>
+              <dt>Ratios</dt>
+              <dd>{{ illustration.ratios.join(' · ') }}</dd>
+            </div>
+            <div>
+              <dt>Keywords</dt>
+              <dd>{{ illustration.keywords.join(', ') }}</dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <span>Made with Codex for luminous numerology journeys</span>
-    <span>© Åse by Setaei 2027</span>
+    <span>Made with Codex for starry insights · © Åse by Setaei 2027</span>
   </footer>
 </div>
