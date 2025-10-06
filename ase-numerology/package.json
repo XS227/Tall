@@ -7,7 +7,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "export:wordpress": "node tools/export-wordpress-content.mjs"
   },
   "dependencies": {
     "@angular/animations": "^17.3.5",
