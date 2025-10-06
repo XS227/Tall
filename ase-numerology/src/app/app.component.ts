@@ -56,6 +56,9 @@ interface ContentMapping {
   source: string;
   destination: string;
   note: string;
+  number: number;
+  archetype: string;
+  description: string;
 }
 
 @Component({
@@ -67,6 +70,9 @@ interface ContentMapping {
 })
 export class AppComponent {
   readonly activeView = signal<ActiveView>('client');
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
   readonly intakeProgress = 9;
   readonly highlights: NumerologyHighlight[] = [
     {
@@ -289,6 +295,22 @@ export class AppComponent {
   setActiveView(view: ActiveView): void {
     this.activeView.set(view);
   }
+
+    { number: 1, archetype: 'The Pioneer', description: 'Leadership, courage and blazing new trails with confidence.' },
+    { number: 2, archetype: 'The Diplomat', description: 'Harmony, support and holding space for meaningful partnership.' },
+    { number: 3, archetype: 'The Muse', description: 'Joyful expression, play and sharing your voice with the world.' },
+    { number: 4, archetype: 'The Architect', description: 'Grounded structure, long term vision and reliable stewardship.' },
+    { number: 5, archetype: 'The Explorer', description: 'Adaptability, freedom and inviting others on bold adventures.' },
+    { number: 6, archetype: 'The Guardian', description: 'Heart-centered service, devotion and building nurturing homes.' },
+    { number: 7, archetype: 'The Sage', description: 'Inner wisdom, spiritual study and guiding others to clarity.' },
+    { number: 8, archetype: 'The Visionary', description: 'Strategic leadership, prosperity and turning purpose into impact.' },
+    { number: 9, archetype: 'The Humanitarian', description: 'Compassionate service, artistry and collective transformation.' },
+    { number: 11, archetype: 'The Oracle', description: 'Inspired insight, intuitive mastery and soulful mentoring.' },
+    { number: 22, archetype: 'The Master Builder', description: 'Grand designs, community leadership and tangible legacy.' },
+    { number: 33, archetype: 'The Master Healer', description: 'Radiant love, spiritual teaching and generational healing.' }
+  ];
+
+  readonly nightMode = signal(false);
 
   toggleNightMode(): void {
     this.nightMode.update(value => !value);

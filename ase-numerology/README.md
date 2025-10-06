@@ -2,6 +2,7 @@
 
 This project rebuilds Åse Stensland's numerology intake page using Angular standalone components and modern styling. It
 also ships with an in-app admin area to coordinate the migration from the current WordPress installation.
+This project rebuilds Åse Stensland's numerology intake page using Angular standalone components and modern styling.
 
 ## Getting started
 
@@ -30,3 +31,4 @@ The easiest path keeps WordPress as the authoring tool while exporting structure
    automation, etc.).
 
 You can schedule the same command in CI/CD to keep the Angular build synchronized with editors who remain in WordPress.
+The development server runs on [http://localhost:4200](http://localhost:4200). The layout is fully responsive and includes a light/night mode toggle.

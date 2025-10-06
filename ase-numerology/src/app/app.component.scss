@@ -202,6 +202,8 @@
 
 .hero__copy {
   display: grid;
+.hero {
+  display: grid;
   gap: 1.5rem;
 }
 
@@ -223,6 +225,7 @@
 }
 
 .hero__copy p {
+.hero p {
   margin: 0;
   max-width: 46ch;
   color: var(--text-muted);
