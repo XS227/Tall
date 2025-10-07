@@ -1,0 +1,323 @@
+<div class="page" [class.night-mode]="nightMode()">
+  <header class="top-bar">
+    <div class="brand">
+      <span class="brand__badge">Åse Stensland</span>
+      <span class="brand__subtitle">Numerologist guide</span>
+    </div>
+
+    <nav class="top-nav" aria-label="Primary">
+      <button
+        type="button"
+        class="top-nav__link"
+        [class.is-active]="activeView() === 'client'"
+        (click)="setActiveView('client')"
+      >
+        Client intake
+      </button>
+      <button
+        type="button"
+        class="top-nav__link"
+        [class.is-active]="activeView() === 'admin'"
+        (click)="setActiveView('admin')"
+      >
+        Admin area
+      </button>
+    </nav>
+
+    <button type="button" class="night-switch" (click)="toggleNightMode()">
+      <span class="night-switch__label">Night mode</span>
+      <span class="night-switch__control" [attr.aria-pressed]="nightMode()">
+        <span class="night-switch__thumb"></span>
+      </span>
+    </button>
+  </header>
+
+  <main class="layout" *ngIf="activeView() === 'client'">
+    <section class="hero card">
+      <div class="hero__layout">
+        <div class="hero__copy">
+          <span class="hero__tag">Åse intelligence · numerology studio</span>
+          <h1>Hello friend</h1>
+          <p>Åses univers samler kurs, kalkulator og fellesskap i ett rolig rom.</p>
+        </div>
+        <figure class="hero__preview" aria-labelledby="hero-preview-title">
+          <figcaption id="hero-preview-title" class="visually-hidden">
+            Preview of Åse Stensland’s numerology experience shown on desktop course portal and mobile calculator
+            screens.
+          </figcaption>
+          <div class="hero__device hero__device--desktop">
+            <span class="hero__device-label">Studieplattform</span>
+            <div class="hero__device-screen">
+              <span class="hero__device-chip">Modul 1 · Energi &amp; språk</span>
+              <span class="hero__device-chip">Live-sending i kveld</span>
+              <span class="hero__device-chip">Fellesskapsrom</span>
+            </div>
+          </div>
+          <div class="hero__device hero__device--mobile">
+            <span class="hero__device-label">Kalkulator</span>
+            <div class="hero__device-screen">
+              <span class="hero__device-reading">Livsvei 7</span>
+              <span class="hero__device-reading">Dagstema · Intuisjon</span>
+              <span class="hero__device-reading">Neste steg · Mentorchat</span>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div class="progress">
+        <div class="progress__label">
+          <strong>Intake progress</strong>
+          <span>Progress: {{ intakeProgress }}% complete</span>
+        </div>
+        <div class="progress__track">
+          <div class="progress__value" [style.width.%]="intakeProgress"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card offerings">
+      <div class="offerings__header">
+        <h2>Studieløp, analyser og medlemskap</h2>
+        <p>Finn reisen som passer, med kalkulatoren som fast følgesvenn.</p>
+      </div>
+      <div class="offerings__grid">
+        <article class="offering" *ngFor="let offering of programOfferings">
+          <span class="offering__badge">{{ offering.badge }}</span>
+          <h3>{{ offering.title }}</h3>
+          <p>{{ offering.summary }}</p>
+          <div class="offering__meta">
+            <span>{{ offering.duration }}</span>
+            <span>{{ offering.format }}</span>
+          </div>
+          <button type="button" class="secondary offering__cta">{{ offering.cta }}</button>
+        </article>
+        <article class="offering offering--calculator">
+          <span class="offering__badge offering__badge--glow">Alltid tilgjengelig</span>
+          <h3>{{ calculatorSpotlight.title }}</h3>
+          <p>{{ calculatorSpotlight.summary }}</p>
+          <ul class="offering__list">
+            <li *ngFor="let feature of calculatorSpotlight.features">{{ feature }}</li>
+          </ul>
+          <button type="button" class="cta offering__cta">{{ calculatorSpotlight.cta }}</button>
+          <p class="offering__note">{{ calculatorSpotlight.support }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card articles">
+      <div class="articles__header">
+        <div>
+          <h2>Aktuelle artikler</h2>
+          <p>Korte lesetips fra WordPress-arkivet.</p>
+        </div>
+        <button type="button" class="secondary articles__cta">Se alle innlegg</button>
+      </div>
+      <div class="articles__grid">
+        <article class="article" *ngFor="let article of featuredArticles">
+          <span class="article__category">{{ article.category }}</span>
+          <h3>{{ article.title }}</h3>
+          <p>{{ article.summary }}</p>
+          <div class="article__meta">
+            <span>{{ article.date }}</span>
+            <button type="button" class="link">{{ article.action }}</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card intake">
+      <h2>Step 1 · Welcome</h2>
+      <p class="intake__hint">Gi Åse navnet og fokuset hun skal holde når historien starter.</p>
+      <form class="intake__form">
+        <label class="input">
+          <span class="input__label">Preferred name</span>
+          <input type="text" placeholder="How should Åse greet you?" />
+        </label>
+        <label class="input">
+          <span class="input__label">Focus area</span>
+          <input type="text" placeholder="What intention should Åse hold for the session?" />
+        </label>
+      </form>
+      <button type="button" class="cta">Continue</button>
+    </section>
+
+    <section class="card snapshot">
+      <div class="snapshot__header">
+        <div>
+          <h2>Your numerology snapshot</h2>
+          <p>Fyll inn feltene over og velg «Generer oversikt» for din personlige graf.</p>
+        </div>
+        <div class="snapshot__actions">
+          <button type="button" class="secondary">Share draft analysis</button>
+          <button type="button" class="cta">Download full analysis</button>
+        </div>
+      </div>
+      <div class="snapshot__grid">
+        <article class="highlight" *ngFor="let item of highlights">
+          <div class="highlight__badge">{{ item.label }}</div>
+          <div class="highlight__value">{{ item.value }}</div>
+          <p>{{ item.description }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card stories">
+      <h2>Core number stories</h2>
+      <p class="stories__intro">Åses mikrofortellinger til hvert tall, med karrierene som matcher.</p>
+      <div class="stories__grid">
+        <article class="story" *ngFor="let story of stories">
+          <div class="story__number">Number {{ story.number }}</div>
+          <h3>{{ story.archetype }}</h3>
+          <p>{{ story.description }}</p>
+          <div class="story__careers">
+            <span class="story__careers-label">Karriere-spotlight</span>
+            <ul>
+              <li *ngFor="let career of story.careers">{{ career }}</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card profiles">
+      <h2>Forbilder fra Åses arkiv</h2>
+      <p class="profiles__intro">Registrer godkjente forbilder i admin og gi studentene retning.</p>
+      <div class="profiles__grid">
+        <article class="profile" *ngFor="let profile of exampleProfiles">
+          <div class="profile__header">
+            <div class="profile__avatar" aria-hidden="true">{{ profile.displayName.charAt(0) }}</div>
+            <div>
+              <h3>{{ profile.displayName }}</h3>
+              <p class="profile__role">{{ profile.role }}</p>
+            </div>
+          </div>
+          <p class="profile__excerpt">{{ profile.excerpt }}</p>
+          <p class="profile__description">{{ profile.description }}</p>
+          <div class="profile__footer">
+            <span class="profile__number">Nummer {{ profile.mainNumber }}</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card illustrations">
+      <h2>Illustration prompts for Åse’s deck</h2>
+      <p class="illustrations__intro">AI-briefene holder tallhistoriene visuelle, konsise og konsistente.</p>
+      <div class="illustrations__grid">
+        <article class="illustration" *ngFor="let illustration of illustrationPrompts">
+          <header class="illustration__header">
+            <span class="illustration__number">{{ illustration.number }}</span>
+            <h3>{{ illustration.title }}</h3>
+          </header>
+          <p class="illustration__prompt">{{ illustration.prompt }}</p>
+          <dl class="illustration__meta">
+            <div>
+              <dt>Style tags</dt>
+              <dd>{{ illustration.styleTags.join(', ') }}</dd>
+            </div>
+            <div>
+              <dt>Ratios</dt>
+              <dd>{{ illustration.ratios.join(' · ') }}</dd>
+            </div>
+            <div>
+              <dt>Keywords</dt>
+              <dd>{{ illustration.keywords.join(', ') }}</dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <main class="layout admin" *ngIf="activeView() === 'admin'">
+    <section class="card admin-intro">
+      <h1>Admin command center</h1>
+      <p>
+        Welcome, Åse. Use this space to keep the Angular experience in sync with your existing WordPress site, review
+        migration tasks and access the export workflow that mirrors your current content.
+      </p>
+      <div class="admin-intro__grid">
+        <article class="admin-highlight">
+          <h2>Why headless WordPress?</h2>
+          <p>
+            You keep the familiar WordPress dashboard for writing while the Angular app serves fast, secure client
+            experiences. Content travels via the official REST API.
+          </p>
+        </article>
+        <article class="admin-highlight">
+          <h2>One-click refresh</h2>
+          <p>
+            Run <code>npm run export:wordpress</code> whenever posts or pages change. The script snapshots data into
+            <code>src/assets/wordpress</code> so Angular components can hydrate instantly.
+          </p>
+        </article>
+        <article class="admin-highlight">
+          <h2>Future automation</h2>
+          <p>
+            Schedule the export in your CI or hosting platform to rebuild nightly. The script is idempotent and safe to
+            run repeatedly.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card admin-steps">
+      <h2>Migration playbook</h2>
+      <p class="admin-steps__intro">
+        Follow the three-step plan below to migrate content from WordPress without downtime. Each outcome aligns with a
+        section already present in the Angular app.
+      </p>
+      <ol class="admin-steps__list">
+        <li *ngFor="let step of migrationSteps">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.detail }}</p>
+          <span class="admin-steps__outcome">Outcome · {{ step.outcome }}</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="card admin-mapping">
+      <h2>Content mapping</h2>
+      <p class="admin-mapping__intro">
+        These are the REST endpoints the export script pulls along with the Angular destinations that expect the data.
+      </p>
+      <div class="admin-table" role="table">
+        <div class="admin-table__row admin-table__row--head" role="row">
+          <div role="columnheader">WordPress type</div>
+          <div role="columnheader">REST endpoint</div>
+          <div role="columnheader">Angular destination</div>
+          <div role="columnheader">Notes</div>
+        </div>
+        <div class="admin-table__row" role="row" *ngFor="let mapping of contentMappings">
+          <div role="cell">{{ mapping.label }}</div>
+          <div role="cell"><code>{{ mapping.source }}</code></div>
+          <div role="cell"><code>{{ mapping.destination }}</code></div>
+          <div role="cell">{{ mapping.note }}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card admin-tasks">
+      <h2>Action tracker</h2>
+      <p class="admin-tasks__intro">
+        Use the tracker to monitor the move to Angular. Link out to the relevant files whenever you need to edit the
+        automation or copy blocks.
+      </p>
+      <div class="admin-tasks__grid">
+        <article class="admin-task" *ngFor="let task of adminTasks">
+          <div class="admin-task__header">
+            <span class="admin-task__status" [class.is-done]="task.status === 'done'" [class.is-progress]="task.status === 'in-progress'">
+              {{ statusLabels[task.status] }}
+            </span>
+            <h3>{{ task.title }}</h3>
+          </div>
+          <p>{{ task.summary }}</p>
+          <p *ngIf="task.reference" class="admin-task__reference">Reference · {{ task.reference }}</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Made with Codex for starry insights · © Åse by Setaei 2027</span>
+  </footer>
+</div>
