@@ -5,6 +5,11 @@ export interface ExampleProfile {
   description?: string;
   mainNumber?: number | 11 | 22 | 33;
   excerpt?: string;
+  displayName: string; // skriv inn navnet når du har godkjenning
+  role: string;
+  description: string;
+  mainNumber: number | 11 | 22 | 33;
+  excerpt: string;
   image?: string;
 }
 

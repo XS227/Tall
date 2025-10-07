@@ -18,6 +18,11 @@ const baseUrl = args.baseUrl || process.env.WP_BASE_URL;
 if (!baseUrl) {
   console.error('❌  Please provide a base WordPress URL via --baseUrl or WP_BASE_URL environment variable.');
   process.exit(1);
+const DEFAULT_BASE_URL = 'https://tall.setaei.com';
+const baseUrl = args.baseUrl || process.env.WP_BASE_URL || DEFAULT_BASE_URL;
+
+if (!args.baseUrl && !process.env.WP_BASE_URL) {
+  console.info(`ℹ️  Using default WordPress base URL: ${DEFAULT_BASE_URL}`);
 }
 
 const outputDir = resolve(process.cwd(), args.outDir || 'src/assets/wordpress');

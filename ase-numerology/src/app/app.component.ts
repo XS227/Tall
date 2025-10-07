@@ -65,6 +65,9 @@ interface ContentMapping {
   source: string;
   destination: string;
   note: string;
+  number: number;
+  archetype: string;
+  description: string;
 }
 
 @Component({
@@ -76,22 +79,28 @@ interface ContentMapping {
 })
 export class AppComponent {
   readonly activeView = signal<ActiveView>('client');
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
   readonly intakeProgress = 9;
   readonly highlights: NumerologyHighlight[] = [
     {
       label: 'Life path',
       value: '7',
       description: 'Intuitiv søker med kjærlighet for dype samtaler.'
+      description: 'Inner seeker who trusts their intuition and loves deep conversations.'
     },
     {
       label: 'Expression',
       value: '3',
       description: 'Kreativ formidler som gløder på scenen og i studio.'
+      description: 'Creative storyteller who shines when sharing your message with the world.'
     },
     {
       label: 'Soul urge',
       value: '11',
       description: 'Følsom visjonær som løfter andre med innsikt og omtanke.'
+      description: 'Sensitive visionary here to lift others with spiritual insight and compassion.'
     }
   ];
 
@@ -100,72 +109,84 @@ export class AppComponent {
       number: 1,
       archetype: 'The Pioneer',
       description: 'Initiativ, mot og tydelige første steg.',
+      description: 'Leadership, courage and blazing new trails with confidence.',
       careers: ['Innovasjonsleder', 'Politisk strateg', 'Kirurgisk spesialist']
     },
     {
       number: 2,
       archetype: 'The Diplomat',
       description: 'Empati, fredsbygging og samarbeidsmagi.',
+      description: 'Harmony, support and holding space for meaningful partnership.',
       careers: ['Familieterapeut', 'Megler i fredsprosesser', 'Sykepleier med samtalekompetanse']
     },
     {
       number: 3,
       archetype: 'The Muse',
       description: 'Skaperglede, formidling og scenelys.',
+      description: 'Joyful expression, play and sharing your voice with the world.',
       careers: ['Historiefortellende kunstner', 'Kommunikasjonsrådgiver', 'Scene- og formidlingscoach']
     },
     {
       number: 4,
       archetype: 'The Architect',
       description: 'Struktur, presisjon og varige systemer.',
+      description: 'Grounded structure, long term vision and reliable stewardship.',
       careers: ['Bærekraftig ingeniør', 'Laboratoriekjemiker', 'Prosjektleder for samfunnsbygging']
     },
     {
       number: 5,
       archetype: 'The Explorer',
       description: 'Frihet, reiser og fleksibel læring.',
+      description: 'Adaptability, freedom and inviting others on bold adventures.',
       careers: ['Reisejournalist', 'Digital nomade-rådgiver', 'Pilot eller navigatør']
     },
     {
       number: 6,
       archetype: 'The Guardian',
       description: 'Omsorg, trygghet og varme hjem.',
+      description: 'Heart-centered service, devotion and building nurturing homes.',
       careers: ['Holistisk lege', 'Pedagogisk veileder', 'Familiecoach']
     },
     {
       number: 7,
       archetype: 'The Sage',
       description: 'Fordypning, forskning og sjelero.',
+      description: 'Inner wisdom, spiritual study and guiding others to clarity.',
       careers: ['Astrofysiker', 'Dataforsker', 'Intuitiv mentor for forskningsmiljøer']
     },
     {
       number: 8,
       archetype: 'The Visionary',
       description: 'Autoritet, resultater og bærekraftig vekst.',
+      description: 'Strategic leadership, prosperity and turning purpose into impact.',
       careers: ['Forretningsjurist', 'Finansiell rådgiver', 'Gründer med sosialt fokus']
     },
     {
       number: 9,
       archetype: 'The Humanitarian',
       description: 'Medfølelse, kunst og globale prosjekter.',
+      description: 'Compassionate service, artistry and collective transformation.',
       careers: ['NGO-leder', 'Psykolog', 'Diplomat for globale initiativ']
     },
     {
       number: 11,
       archetype: 'The Oracle',
       description: 'Intuisjon, visjoner og energimesteri.',
+      description: 'Inspired insight, intuitive mastery and soulful mentoring.',
       careers: ['Spirituell lærer', 'Energihealer', 'Kreativ veileder for intuitive ledere']
     },
     {
       number: 22,
       archetype: 'The Master Builder',
       description: 'Store byggeplaner og fellesskapsledelse.',
+      description: 'Grand designs, community leadership and tangible legacy.',
       careers: ['Systemarkitekt', 'Urban planlegger', 'Gründer av samfunnsprosjekter']
     },
     {
       number: 33,
       archetype: 'The Master Healer',
       description: 'Helende undervisning og hjertespråk.',
+      description: 'Radiant love, spiritual teaching and generational healing.',
       careers: ['Mentor for lærere', 'Humanitær rådgiver', 'Helhetlig terapeut']
     }
   ];
@@ -178,6 +199,7 @@ export class AppComponent {
       badge: 'Studiekurs',
       title: 'Grunnkurs i sjelsenergi',
       summary: 'Utforsk fødselstall og språk på ti uker.',
+      summary: '10 ukers hybridløp som leder studentene fra eget fødselstall til profesjonell tolkning.',
       duration: '10 uker',
       format: 'Live + on-demand',
       cta: 'Utforsk grunnkurset'
@@ -187,6 +209,7 @@ export class AppComponent {
       badge: 'Fordypning',
       title: 'Årsstudium i karmisk numerologi',
       summary: 'Ett års praksis med karmisk fordypning.',
+      summary: 'Fordypning med veiledning, casearbeid og energiøvelser gjennom hele studieåret.',
       duration: '12 måneder',
       format: 'Samlingsbasert',
       cta: 'Se studieplanen'
@@ -196,6 +219,7 @@ export class AppComponent {
       badge: 'Medlemskap',
       title: 'Åses krets for intuitive rådgivere',
       summary: 'Månedlig sirkel med seremonier og sparring.',
+      summary: 'Månedlig medlemskap med seremonier, kollegiale møter og tilgang til ressursbibliotek.',
       duration: 'Løpende',
       format: 'Digital klubb',
       cta: 'Bli med i kretsen'
@@ -212,6 +236,14 @@ export class AppComponent {
     ],
     cta: 'Start kalkulatoren',
     support: 'Inkludert for studenter og medlemmer med studie-ID.'
+    summary: 'Samme kalkulator Åse bruker i klientarbeidet – nå tilgjengelig for alle studenter mellom modulene.',
+    features: [
+      'Lagre og gjenåpne analyser fra kurskvelder',
+      'Sammenlign studieretninger med energisyklusene dine',
+      'Del utdrag med mentorer direkte fra appen'
+    ],
+    cta: 'Start kalkulatoren',
+    support: 'Tilgjengelig 24/7 for medlemmer og studenter. Krever innlogging med studie-ID.'
   };
 
   readonly exampleProfiles: ExampleProfile[] = EXAMPLE_PROFILES;
@@ -356,5 +388,23 @@ export class AppComponent {
     return profile.mainNumber !== undefined && profile.mainNumber !== null
       ? String(profile.mainNumber)
       : '—';
+    { number: 1, archetype: 'The Pioneer', description: 'Leadership, courage and blazing new trails with confidence.' },
+    { number: 2, archetype: 'The Diplomat', description: 'Harmony, support and holding space for meaningful partnership.' },
+    { number: 3, archetype: 'The Muse', description: 'Joyful expression, play and sharing your voice with the world.' },
+    { number: 4, archetype: 'The Architect', description: 'Grounded structure, long term vision and reliable stewardship.' },
+    { number: 5, archetype: 'The Explorer', description: 'Adaptability, freedom and inviting others on bold adventures.' },
+    { number: 6, archetype: 'The Guardian', description: 'Heart-centered service, devotion and building nurturing homes.' },
+    { number: 7, archetype: 'The Sage', description: 'Inner wisdom, spiritual study and guiding others to clarity.' },
+    { number: 8, archetype: 'The Visionary', description: 'Strategic leadership, prosperity and turning purpose into impact.' },
+    { number: 9, archetype: 'The Humanitarian', description: 'Compassionate service, artistry and collective transformation.' },
+    { number: 11, archetype: 'The Oracle', description: 'Inspired insight, intuitive mastery and soulful mentoring.' },
+    { number: 22, archetype: 'The Master Builder', description: 'Grand designs, community leadership and tangible legacy.' },
+    { number: 33, archetype: 'The Master Healer', description: 'Radiant love, spiritual teaching and generational healing.' }
+  ];
+
+  readonly nightMode = signal(false);
+
+  toggleNightMode(): void {
+    this.nightMode.update(value => !value);
   }
 }
