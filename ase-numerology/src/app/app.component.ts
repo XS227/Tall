@@ -329,4 +329,32 @@ export class AppComponent {
   toggleNightMode(): void {
     this.nightMode.update(value => !value);
   }
+
+  profileInitial(profile: ExampleProfile): string {
+    const name = profile.displayName?.trim();
+    if (!name) {
+      return '?';
+    }
+
+    const firstCharacter = Array.from(name)[0];
+    return firstCharacter ? firstCharacter.toUpperCase() : '?';
+  }
+
+  profileRole(profile: ExampleProfile): string {
+    return profile.role?.trim() || 'Rolle annonseres snart';
+  }
+
+  profileExcerpt(profile: ExampleProfile): string {
+    return profile.excerpt?.trim() || 'Åse legger til utdrag når profilen er klar.';
+  }
+
+  profileDescription(profile: ExampleProfile): string {
+    return profile.description?.trim() || 'Beskrivelsen fylles inn etter godkjenning.';
+  }
+
+  profileNumber(profile: ExampleProfile): string {
+    return profile.mainNumber !== undefined && profile.mainNumber !== null
+      ? String(profile.mainNumber)
+      : '—';
+  }
 }

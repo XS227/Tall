@@ -184,16 +184,16 @@
       <div class="profiles__grid">
         <article class="profile" *ngFor="let profile of exampleProfiles">
           <div class="profile__header">
-            <div class="profile__avatar" aria-hidden="true">{{ profile.displayName.charAt(0) }}</div>
+            <div class="profile__avatar" aria-hidden="true">{{ profileInitial(profile) }}</div>
             <div>
-              <h3>{{ profile.displayName }}</h3>
-              <p class="profile__role">{{ profile.role }}</p>
+              <h3>{{ profile.displayName || 'Navn kommer' }}</h3>
+              <p class="profile__role">{{ profileRole(profile) }}</p>
             </div>
           </div>
-          <p class="profile__excerpt">{{ profile.excerpt }}</p>
-          <p class="profile__description">{{ profile.description }}</p>
+          <p class="profile__excerpt">{{ profileExcerpt(profile) }}</p>
+          <p class="profile__description">{{ profileDescription(profile) }}</p>
           <div class="profile__footer">
-            <span class="profile__number">Nummer {{ profile.mainNumber }}</span>
+            <span class="profile__number">Nummer {{ profileNumber(profile) }}</span>
           </div>
         </article>
       </div>
