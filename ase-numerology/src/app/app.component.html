@@ -38,6 +38,7 @@
         <div class="hero__copy">
           <span class="hero__tag">Åse intelligence · numerology studio</span>
           <h1>Hello friend</h1>
+          <p>Åses univers samler kurs, kalkulator og fellesskap i ett rolig rom.</p>
           <p>
             Follow the guided intake to uncover every calculator Åse uses when preparing a personal
             numerology story.
@@ -88,6 +89,7 @@
     <section class="card offerings">
       <div class="offerings__header">
         <h2>Studieløp, analyser og medlemskap</h2>
+        <p>Finn reisen som passer, med kalkulatoren som fast følgesvenn.</p>
         <p>
           Velg reisen som passer deg – kurs, fordypning og fellesskap. Numerologi-kalkulatoren følger deg gjennom hele
           studieperioden.
@@ -117,6 +119,30 @@
       </div>
     </section>
 
+    <section class="card articles">
+      <div class="articles__header">
+        <div>
+          <h2>Aktuelle artikler</h2>
+          <p>Korte lesetips fra WordPress-arkivet.</p>
+        </div>
+        <button type="button" class="secondary articles__cta">Se alle innlegg</button>
+      </div>
+      <div class="articles__grid">
+        <article class="article" *ngFor="let article of featuredArticles">
+          <span class="article__category">{{ article.category }}</span>
+          <h3>{{ article.title }}</h3>
+          <p>{{ article.summary }}</p>
+          <div class="article__meta">
+            <span>{{ article.date }}</span>
+            <button type="button" class="link">{{ article.action }}</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card intake">
+      <h2>Step 1 · Welcome</h2>
+      <p class="intake__hint">Gi Åse navnet og fokuset hun skal holde når historien starter.</p>
     <section class="card intake">
       <h2>Step 1 · Welcome</h2>
       <p class="intake__hint">
@@ -139,6 +165,7 @@
       <div class="snapshot__header">
         <div>
           <h2>Your numerology snapshot</h2>
+          <p>Fyll inn feltene over og velg «Generer oversikt» for din personlige graf.</p>
           <p>Enter your details above and choose “Generate overview” to calculate your personal chart.</p>
         </div>
         <div class="snapshot__actions">
@@ -157,6 +184,7 @@
 
     <section class="card stories">
       <h2>Core number stories</h2>
+      <p class="stories__intro">Åses mikrofortellinger til hvert tall, med karrierene som matcher.</p>
       <p class="stories__intro">
         Each number carries a life lesson and invitation. Read the quick stories Åse shares with every client.
       </p>
@@ -177,6 +205,7 @@
 
     <section class="card profiles">
       <h2>Forbilder fra Åses arkiv</h2>
+      <p class="profiles__intro">Registrer godkjente forbilder i admin og gi studentene retning.</p>
       <p class="profiles__intro">
         I adminområdet kan du legge inn godkjente profiler som demonstrerer hvordan tallene spiller sammen med virkelige
         karrierer. Disse eksemplene gir studentene retning når de avslutter studieløpet.
@@ -201,6 +230,7 @@
 
     <section class="card illustrations">
       <h2>Illustration prompts for Åse’s deck</h2>
+      <p class="illustrations__intro">AI-briefene holder tallhistoriene visuelle, konsise og konsistente.</p>
       <p class="illustrations__intro">
         Share these text-to-image prompts with your favourite generator to create bespoke artwork for each numerology
         profile. Every prompt keeps Åse’s palette, cosmic minimalism and profession hints intact.
