@@ -358,6 +358,36 @@ export class AppComponent {
     this.activeView.set(view);
   }
 
+  toggleNightMode(): void {
+    this.nightMode.update(value => !value);
+  }
+
+  profileInitial(profile: ExampleProfile): string {
+    const name = profile.displayName?.trim();
+    if (!name) {
+      return '?';
+    }
+
+    const firstCharacter = Array.from(name)[0];
+    return firstCharacter ? firstCharacter.toUpperCase() : '?';
+  }
+
+  profileRole(profile: ExampleProfile): string {
+    return profile.role?.trim() || 'Rolle annonseres snart';
+  }
+
+  profileExcerpt(profile: ExampleProfile): string {
+    return profile.excerpt?.trim() || 'Åse legger til utdrag når profilen er klar.';
+  }
+
+  profileDescription(profile: ExampleProfile): string {
+    return profile.description?.trim() || 'Beskrivelsen fylles inn etter godkjenning.';
+  }
+
+  profileNumber(profile: ExampleProfile): string {
+    return profile.mainNumber !== undefined && profile.mainNumber !== null
+      ? String(profile.mainNumber)
+      : '—';
     { number: 1, archetype: 'The Pioneer', description: 'Leadership, courage and blazing new trails with confidence.' },
     { number: 2, archetype: 'The Diplomat', description: 'Harmony, support and holding space for meaningful partnership.' },
     { number: 3, archetype: 'The Muse', description: 'Joyful expression, play and sharing your voice with the world.' },
