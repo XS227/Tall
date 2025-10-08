@@ -1,8 +1,7 @@
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { constants } from 'karma';
+const { join } = require('node:path');
+const { constants } = require('karma');
 
-export default function (config) {
+module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
@@ -21,7 +20,7 @@ export default function (config) {
       suppressAll: true
     },
     coverageReporter: {
-      dir: join(fileURLToPath(new URL('.', import.meta.url)), './coverage'),
+      dir: join(__dirname, './coverage'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }]
     },
@@ -34,4 +33,4 @@ export default function (config) {
     autoWatch: true,
     singleRun: false
   });
-}
+};
