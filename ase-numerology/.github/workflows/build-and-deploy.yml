@@ -24,8 +24,12 @@ jobs:
       - name: Build Angular (prod, base at /)
         run: |
           npx ng build --configuration production --base-href "/" --deploy-url "/"
-          APP=$(jq -r '.defaultProject' angular.json)
-          echo "DIST_DIR=dist/$APP/browser" >> $GITHUB_ENV
+          DIST_ROOT=$(jq -r '.projects | to_entries[0].value.architect.build.options.outputPath // empty' angular.json)
+          if [ -z "$DIST_ROOT" ]; then
+            APP_NAME=$(jq -r '.projects | keys[0]' angular.json)
+            DIST_ROOT="dist/$APP_NAME"
+          fi
+          echo "DIST_DIR=${DIST_ROOT%/}/browser" >> $GITHUB_ENV
 
       # FTPS deploy: synker innholdet i dist-folderen til subdomene-roten
       - name: Deploy via FTPS
